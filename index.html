@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Attiva Saúde - Soluções inteligentes em planos de saúde no Rio de Janeiro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8fdfb;
+      color: #333;
+/* Ajustes gerais para telas pequenas */
+@media (max-width: 900px) {
+  .form-container {
+    flex-direction: column; /* Form e texto empilhados */
+    gap: 20px;
+
+
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  nav a {
+    font-size: 18px;
+  }
+
+  .modalidades {
+    flex-direction: column; /* Modalidades empilhadas */
+    max-width: 100%;
+  }
+
+  .modalidade {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+
+  header {
+    padding: 10px;
+  }
+
+  header img {
+    max-width: 140px; /* Reduzir um pouco logo */
+  }
+}
+
+/* Para telas muito pequenas (ex: celulares pequenos) */
+@media (max-width: 480px) {
+  nav a {
+    font-size: 16px;
+  }
+
+  form input, form textarea, form button {
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .modalidade h3 {
+    font-size: 18px;
+  }
+/* Animações suaves para elementos principais */
+
+header, nav, section, footer {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+header {
+  animation-delay: 0.1s;
+}
+
+nav {
+  animation-delay: 0.2s;
+}
+
+section {
+  animation-delay: 0.4s;
+}
+
+footer {
+  animation-delay: 0.5s;
+}
+
+/* Keyframes para animação */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efeito hover para os botões */
+button:hover {
+  background-color: #2ab07a;
+  transition: background-color 0.3s ease;
+}
+
+/* Link hover suave */
+nav a:hover {
+  color: #004d33;
+  transition: color 0.3s ease;
+}
+
+}
+
+    }
+
+    header {
+      background-color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    header img {
+      max-width: 250px; /* Aumentado tamanho da logo */
+      height: auto;
+    }
+
+    header .header-text {
+      flex: 1;
+      text-align: center;
+      color: #003322;
+    }
+
+    nav {
+      background-color: #e0f9ed;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      position: static; /* menu desfixo */
+    }
+
+    nav a {
+      color: #006644;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .form-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .form-container > div {
+      flex: 1;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #33cc99;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .operadoras {
+      background-color: white;
+      color: #007a66;
+      padding: 40px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      margin: 40px auto;
+    }
+
+    /* Operadoras lado a lado */
+    .operadoras .operadora-item {
+      text-align: center;
+      flex: 1 1 130px;
+      max-width: 150px;
+      margin: 10px;
+    }
+    .operadoras .operadora-item img {
+      max-width: 120px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    #modalidades {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.modalidades-container {
+  display: flex;
+  gap: 20px; /* espaço entre os cards */
+  justify-content: center; /* centraliza horizontalmente */
+  flex-wrap: wrap; /* para ficar responsivo em telas menores */
+}
+
+.modalidade-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  flex: 1 1 250px; /* largura mínima 250px e flexível */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.modalidade-card h3 {
+  margin-top: 0;
+  color: #007a66;
+}
+
+.modalidade-card p {
+  color: #444;
+}
+
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #a0e9c3;
+      color: #003322;
+    }
+
+    /* WhatsApp floating button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .whatsapp-float img {
+      width: 60px;
+      height: 60px;
+    }
+ 
+
+    @media (max-width: 600px) {
+      .form-container {
+        flex-direction: column;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo Attiva Saúde" />
+    <div class="header-text">
+      <h1>Attiva Saúde</h1>
+      <p>Soluções inteligentes em planos de saúde no RJ</p>
+      <p><strong>Horário de atendimento:</strong> Seg a Sexta, 09h às 18h</p>
+      
+
+    </div>
+  </header>
+
+  <nav>
+  
+    <a href="#início">Cotação</a>
+    <a href="#operadoras">Operadoras</a>
+    <a href="#modalidades">Modalidades</a>
+    <a href="#contato">Fale Conosco</a>
+  </nav>
+
+  <!-- 🔽 Nova seção de apresentação -->
+ <section id="apresentacao" class="apresentacao">
+  <div class="container">
+    <h2>Bem-vindo à Attiva Saúde</h2>
+    <p>
+      Na Attiva Saúde, acreditamos que <strong>ter um plano de saúde</strong> não precisa ser <strong>complicado</strong> — nem <strong>inacessível</strong>. 
+      Atuamos no Rio de Janeiro com o compromisso de ajudar você e sua família a encontrar o <strong>plano ideal</strong>, de acordo com suas 
+      <strong>necessidades reais</strong> e <strong>possibilidades</strong>.
+    </p>
+    <p>
+      Mais do que vender um plano, nosso papel é <strong>orientar você</strong>. Sabemos que <strong>cada pessoa tem uma rotina, um orçamento e um cuidado específico</strong> 
+      com a saúde — por isso, trabalhamos para oferecer <strong>soluções personalizadas</strong>, com <strong>transparência</strong> e <strong>acolhimento</strong>.
+    </p>
+    <p>
+      Hoje em dia, <strong>ter um plano de saúde</strong> é mais do que uma comodidade — é uma <strong>segurança essencial</strong>. 
+      E com a orientação certa, é possível ter essa proteção no seu dia a dia, sem comprometer o que é mais importante: sua <strong>tranquilidade</strong>.
+    </p>
+    <p>
+      Conte com a Attiva para <strong>fazer a escolha certa</strong>. Estamos aqui para <strong>cuidar de você</strong>, desde a primeira conversa.
+    </p>
+  </div>
+</section>
+
+
+  <section id="inicio">
+
+    <h2>Cotação via WhatsApp</h2>
+    <div class="form-container">
+      <div>
+        <p>
+          Preencha seus dados e fale com um de nossos especialistas via
+          WhatsApp. 
+        </p>
+      </div>
+      <div>
+        <form onsubmit="enviarWhatsApp(); return false;">
+          <input type="text" id="nome" placeholder="Seu nome" required />
+          <input type="text" id="whats" placeholder="Seu WhatsApp" required />
+          <input type="email" id="email" placeholder="Seu e-mail" required />
+          <textarea
+            id="mensagem"
+            rows="4"
+            placeholder="Mensagem..."
+            required
+          ></textarea>
+          <button type="submit">Enviar via WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="operadoras" class="operadoras">
+    <h2>Operadoras Parceiras</h2>
+    <p>Trabalhamos com operadoras reconhecidas nacionalmente:</p>
+    <div
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="operadora-item">
+        <img src="amil.png" alt="Amil" />
+        <p>Amil</p>
+      </div>
+
+      <div class="operadora-item">
+        <img src="leve_saude.png" alt="Leve Saúde" />
+        <p>Leve Saúde</p>
+      </div>
+
+      <div class="operadora-item">
+        <img src="klini.png" alt="Klini" />
+        <p>Klini</p>
+      </div>
+
+      <div class="operadora-item">
+        <img src="assim_saude.png" alt="Assim Saúde" />
+        <p>Assim Saúde</p>
+      </div>
+
+      <div class="operadora-item">
+        <img src="sul_america.png" alt="Sul América" />
+        <p>Sul América</p>
+      </div>
+
+      <div class="operadora-item">
+        <img src="notre_dame.png" alt="Notre Dame" />
+        <p>Notre Dame</p>
+      </div>
+
+      <div class="operadora-item">
+        <img src="bradesco.png" alt="Bradesco" />
+        <p>Bradesco</p>
+      </div>
+    </div>
+  </section>
+
+ <section id="modalidades">
+  <h2>Modalidades</h2>
+  <div class="modalidades-container">
+    <div class="modalidade-card">
+      <h3>Plano Individual</h3>
+      <p>Ideal para quem busca proteção para si mesmo com planos personalizados.</p>
+    </div>
+    <div class="modalidade-card">
+      <h3>Plano Coletivo</h3>
+      <p>Perfeito para grupos, sindicatos e associações, com preços especiais.</p>
+    </div>
+    <div class="modalidade-card">
+      <h3>Plano Empresarial</h3>
+      <p>Benefícios exclusivos para empresas e colaboradores.</p>
+    </div>
+  </div>
+</section>
+
+
+  <section id="contato">
+    <h2>Fale Conosco</h2>
+    <form>
+      <input type="text" name="nome" placeholder="Seu nome" required />
+      <input type="email" name="email" placeholder="Seu e-mail" required />
+      <textarea
+        name="mensagem"
+        rows="5"
+        placeholder="Escreva sua mensagem..."
+        required
+      ></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Attiva Saúde | Todos os direitos reservados</p>
+  </footer>
+
+  <!-- Botão flutuante do WhatsApp -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5521981567031"
+    target="_blank"
+    ><img
+      src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"
+      alt="WhatsApp"
+  /></a>
+
+  <script>
+    function enviarWhatsApp() {
+      const nome = document.getElementById("nome").value;
+      const whats = document.getElementById("whats").value;
+      const email = document.getElementById("email").value;
+      const mensagem = document.getElementById("mensagem").value;
+
+      const texto = `Olá, meu nome é ${nome}. WhatsApp: ${whats}, E-mail: ${email}. Mensagem: ${mensagem}`;
+      const url = "https://wa.me/5521981567031?text=" + encodeURIComponent(texto);
+<section id="planos" style="max-width: 900px; margin: 40px auto; padding: 20px; background-color: #e0f9ed; border-radius: 10px;">
+  <h2>Valores dos Planos de Saúde</h2>
+  <p>Confira nossas opções de planos acessíveis para o RJ:</p>
+  <ul>
+    <li>Plano Individual a partir de R$ 250/mês</li>
+    <li>Plano Coletivo a partir de R$ 180/mês por pessoa</li>
+    <li>Plano Empresarial com condições especiais para sua empresa</li>
+  </ul>
+  <p>Entre em contato conosco para uma cotação personalizada!</p>
+</section>
+
+
